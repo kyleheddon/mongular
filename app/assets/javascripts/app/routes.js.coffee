@@ -3,7 +3,7 @@ app.config ($routeProvider) ->
     controller: 'RoomsController'
     templateUrl: '/rooms.html'
 
-  .when '/rooms/:name',
+  .when '/rooms/:id',
     controller: 'RoomController'
     templateUrl: (params) -> 
-      "/rooms/#{params.name}.html"
+      "/rooms/#{params.id}.html"

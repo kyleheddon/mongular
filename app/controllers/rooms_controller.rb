@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    puts params.inspect
   end
 
   # GET /rooms/new

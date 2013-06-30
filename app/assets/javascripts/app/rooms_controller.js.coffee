@@ -1,3 +1,3 @@
 app.controller 'RoomsController', ($scope, $resource) ->
-  Room = $resource('/rooms/:id', { id: '@id' })
+  Room = $resource('/rooms.json')
   $scope.rooms = Room.query()
