@@ -1,5 +1,7 @@
-%h1= "Welcome, #{session[:user]}"
-%h2 Available Rooms
-%ul
-  %li{ 'ng-repeat' => 'room in rooms' }
-    {{ room.name }}
+%h2 Avaliable Rooms
+%table
+  %tbody
+    %tr{ 'ng-repeat' => 'room in rooms' }
+      %td 
+        %a{ href: '#/rooms/{{room.name}}' }
+          {{ room.name }}
