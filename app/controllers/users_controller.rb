@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.create(user_params)
-    render json: @user.attributes
+    user = User.create(user_params)
+    session[:user] = user.name
+    render json: user.attributes
   end
 
   private

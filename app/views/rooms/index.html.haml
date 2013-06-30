@@ -1,4 +1,4 @@
-%h1= "Welcome, #{session[:name]}"
+%h1= "Welcome, #{session[:user]}"
 %h2 Available Rooms
 %ul
   %li{ 'ng-repeat' => 'room in rooms' }
