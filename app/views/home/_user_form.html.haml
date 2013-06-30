@@ -1,0 +1,5 @@
+%h1 Who are you??
+.row
+  .large-4.columns
+    = form_for @user, url: '', html: { 'ng-submit' => 'submit_name()', 'ng-controller' => 'UsersController' } do |f|
+      = f.text_field :name, { 'ng-model' => 'name' }

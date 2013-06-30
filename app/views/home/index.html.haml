@@ -1,2 +1,4 @@
-%h1 Chat you guy {{name}}
-%input{ type: 'text', 'ng-model' => 'name' }
+- if @user.new_record?
+  = render 'user_form'
+- else
+  %div{ 'ng-view' => '' }
