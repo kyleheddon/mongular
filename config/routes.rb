@@ -1,3 +1,4 @@
 Monglar::Application.routes.draw do
-  root 'chat#index'
+  root 'home#index'
+  resources :rooms
 end

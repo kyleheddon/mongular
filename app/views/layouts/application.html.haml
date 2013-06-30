@@ -1,9 +1,10 @@
 !!!
-%html{ 'ng-app' => '' }
+%html{ 'ng-app' => 'chat' }
   %head
     %title Monglar
     = stylesheet_link_tag    "application", media: "all"
     = csrf_meta_tags
   %body
     = yield
+    %div{ 'ng-view' => '' }
     = javascript_include_tag "application"
