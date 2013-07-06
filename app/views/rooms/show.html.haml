@@ -13,5 +13,5 @@
         %td {{message.content}}
         %td {{message.created_at | date:'MM/dd/yy HH:mm'}}
       %tr
-        %form{ name: 'message_form', data: { ng_submit: 'submit_message()', ng_model: 'new_message'} }
-          %input{ type: 'text', 'data-ng-model' => 'new_message.content' }
+%form{ name: 'message_form', data: { ng_submit: 'submit_message()', ng_model: 'new_message'} }
+  %input{ type: 'text', 'data-ng-model' => 'new_message.content' }
