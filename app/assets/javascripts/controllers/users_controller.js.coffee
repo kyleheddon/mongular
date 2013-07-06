@@ -1,7 +1,7 @@
 app.controller 'UsersController', ($scope, $resource) ->
   User = $resource('/users/')
 
-  $scope.submit_name = (name) ->
+  $scope.submit_name = ->
     User.save( {}, $scope.user, user_submitted )
 
   user_submitted = (user) ->

@@ -1,4 +1,4 @@
-%div{ 'ng-model' => 'room' }
+%div{ 'data-ng-model' => 'room' }
   %h2 Room {{room.name}}
 
   %table
@@ -8,7 +8,10 @@
         %th Message
         %th Time
     %tbody
+      %tr{ 'data-ng-repeat' => 'message in room.messages' }
+        %td {{message.user.name}}
+        %td {{message.content}}
+        %td {{message.created_at | date:'MM/dd/yy HH:mm'}}
       %tr
-        %td
-        %td
-        %td
+        %form{ data: { ng_submit: 'submit_message()', ng_controller: 'RoomController' } }
+          %input{ type: 'text', 'data-ng-model' => 'new_message.content' }
