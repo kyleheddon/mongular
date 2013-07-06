@@ -5,4 +5,4 @@ app.controller 'UsersController', ($scope, $resource) ->
     User.save( {}, $scope.user, user_submitted )
 
   user_submitted = (user) ->
-    alert "hello, #{user.name}!"
+    window.location.reload()

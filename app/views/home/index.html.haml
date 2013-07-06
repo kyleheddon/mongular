@@ -1,2 +1,6 @@
-= render 'user_form'
-%div{ 'ng-view' => '' }
+- if current_user
+  %h1= "Hello #{current_user.name}"  
+  %div{ data: { ng_view: '' } }
+
+- else
+  = render 'user_form'
