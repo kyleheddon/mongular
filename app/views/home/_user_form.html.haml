@@ -1,5 +1,5 @@
 %h1 Who are you??
 .row
   .large-4.columns
-    = form_for @user, url: '', html: { 'ng-submit' => 'submit_name()', 'ng-controller' => 'UsersController' , 'data-post-form' => 0} do |f|
-      = f.text_field :name, { 'ng-model' => 'user.name' }
+    = form_for @user, data: { ng_submit: 'submit_name()', ng_controller: 'UsersController' } do |f|
+      = f.text_field :name, ng_model: 'user.name'
