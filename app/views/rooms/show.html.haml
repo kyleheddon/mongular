@@ -6,12 +6,16 @@
       %tr
         %th User
         %th Message
-        %th Time
+        /%th Time
     %tbody
       %tr{ 'data-ng-repeat' => 'message in room.messages' }
         %td {{message.user.name}}
         %td {{message.content}}
-        %td {{message.created_at | date:'MM/dd/yy HH:mm'}}
+        /%td {{message.created_at | date:'MM/dd/yy HH:mm'}}
       %tr
 %form{ name: 'message_form', data: { ng_submit: 'submit_message()', ng_model: 'new_message'} }
-  %input{ type: 'text', 'data-ng-model' => 'new_message.content' }
+  .row
+    .column.small-8
+      %input{ type: 'text', 'data-ng-model' => 'new_message.content' }
+    .column.small-4
+      %input.button.postfix{ type: 'submit', value: 'Send' }
