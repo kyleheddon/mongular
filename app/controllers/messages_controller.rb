@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_room
   before_action :set_message, only: [:show]
-  layout false
 
   def index
     @messages = @room.messages

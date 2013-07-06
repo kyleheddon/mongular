@@ -1,6 +1,5 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :destroy]
-  layout false
 
   def index
     @rooms = Room.all

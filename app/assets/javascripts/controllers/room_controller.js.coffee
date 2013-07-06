@@ -4,7 +4,7 @@ app.controller 'RoomController', ($scope, $resource, $routeParams) ->
   $scope.room = Room.get()
 
   $scope.submit_message = ->
-    Message.save({}, $scope.new_message, message_submitted) 
+    message = Message.save(content: $scope.new_message.content) 
+    $scope.room.messages.push message
 
-  message_submitted = (message) ->
-    console.log(message)
+    $scope.new_message = {}
