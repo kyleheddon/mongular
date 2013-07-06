@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    session[:user] = user.name
+    session[:user] = user.id
     render json: user.attributes
   end
 
