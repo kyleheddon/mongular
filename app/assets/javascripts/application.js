@@ -16,4 +16,5 @@
 //= require vendor
 //= require app
 //= require_tree .
+//= require websocket_rails/main
 $(function(){ $(document).foundation(); });
