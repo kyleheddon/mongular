@@ -15,5 +15,5 @@
 //= require foundation
 //= require vendor
 //= require app
-//= require_tree ./app/
+//= require_tree .
 $(function(){ $(document).foundation(); });
