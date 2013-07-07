@@ -8,13 +8,13 @@ class ChatController < WebsocketRails::BaseController
 
   def new_message
     room = Room.find(params[:room_id])
-    new_message = room.messages.new(message_params)
-    new_message.user = current_user
+    @new_message = room.messages.new(message_params)
+    @new_message.user = current_user
 
-    if new_message.save
-      broadcast_message "#{room.id}_message_created", new_message.attributes
+    if @new_message.save
+      broadcast_message "#{room.id}_message_created", message_attributes.merge(current_user_attributes)
     else
-      send_message "#{room.id}_message_created", {errors: new_message.errors}
+      send_message "#{room.id}_message_created", {errors: @new_message.errors}
     end
   end
 
@@ -22,6 +22,14 @@ class ChatController < WebsocketRails::BaseController
 
     def message_params
       params.require(:message).permit(:content)
+    end
+
+    def current_user_attributes
+      { user: current_user.attributes.slice('name', 'id') }
+    end
+
+    def message_attributes 
+      @new_message.attributes.slice('content', 'created_at')
     end
 
 end
