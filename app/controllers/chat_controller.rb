@@ -1,5 +1,5 @@
 class ChatController < WebsocketRails::BaseController
-  include ActiveSession::User
+  include ActiveSession::CurrentUser
   include WebSocketController::Parameters
 
   def initialize_session

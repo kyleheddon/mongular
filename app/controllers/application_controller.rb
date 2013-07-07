@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
+  include ActiveSession::CurrentUser
   # For APIs, you may want to use :null_session instead.
   layout false
   protect_from_forgery with: :exception
-  
-  include ActiveSession::User
-    helper_method :current_user
-
+  helper_method :current_user
 end
