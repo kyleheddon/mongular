@@ -6,6 +6,7 @@ app.factory 'socket', ($rootScope) ->
     delete socket.callbacks
     socket = new WebSocketRails(socket_location)
     socket.callbacks = callbacks
+    socket
 
   $(window).on('pageshow', reconnect)
 
@@ -18,5 +19,6 @@ app.factory 'socket', ($rootScope) ->
 
     trigger: (event_name, data) ->
       if !socket.trigger(event_name, data)
+        reconnect().trigger(event_name, data)
         window.location.reload()
   }
