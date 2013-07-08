@@ -1,6 +1,15 @@
 app.factory 'socket', ($rootScope) ->
   socket = new WebSocketRails(socket_location)
 
+  reconnect_on_pageshow = ->
+    $(window).on 'pageshow', ->
+      callbacks = socket.callbacks
+      delete socket.callbacks
+      socket = new WebSocketRails(socket_location)
+      socket.callbacks = callbacks
+
+  reconnect_on_pageshow()
+
   {
     on: (event_name, callback) ->
       socket.bind event_name, ->
