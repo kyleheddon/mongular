@@ -3,7 +3,7 @@ app.factory 'socket', ($rootScope, $route) ->
 
   reconnect = ->
     callbacks = socket.callbacks
-    delete this.socket
+    delete socket.callbacks
     socket = new WebSocketRails(socket_location)
     socket.callbacks = callbacks
     $(window).trigger('reconnect_socket')
