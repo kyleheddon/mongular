@@ -1,0 +1,15 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: mongular_dev
+  username: root
+  host: 127.0.0.1
+  port: 3306
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: mongular_test
+  username: root
+  host: 127.0.0.1
+  port: 3306

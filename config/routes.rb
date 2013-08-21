@@ -4,4 +4,5 @@ Monglar::Application.routes.draw do
   resources :rooms do
     resources :messages
   end
+  get 'logout' => 'sessions#destroy'
 end

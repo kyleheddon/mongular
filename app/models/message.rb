@@ -1,8 +1,2 @@
-class Message
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  
-  field :content, type: String
-  belongs_to :user
-  belongs_to :room
+class Message < ActiveRecord::Base
 end
