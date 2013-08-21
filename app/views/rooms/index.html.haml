@@ -3,7 +3,12 @@
   %tbody
     %tr{ 'data-ng-repeat' => 'room in rooms' }
       %td 
-        %a{ href: '#/rooms/{{room.name}}' }
+        %a{ href: '#/rooms/{{room.name.toLowerCase().replace(" ", "_")}}' }
           {{ room.name }}
           
-%a.small.button{ href: '#/rooms/create/' } Create Room
+%form{ data: { ng_submit: 'create_room()', ng_model: 'new_room'} }
+  .row
+    .column.small-8
+      %input{ type: 'text', 'data-ng-model' => 'new_room.name' }
+    .column.small-4
+      %input.small.button.postfix{ type: 'submit', value: 'Create Room' }

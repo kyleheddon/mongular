@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
 
   private
     def set_room
-      @room = Room.find(params[:id])
+      @room = Room.find(:first, conditions: [ "lower(name) = ?", params[:id].gsub('_', ' ') ])
     end
 
     def room_params

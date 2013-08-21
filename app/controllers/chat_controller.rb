@@ -12,7 +12,7 @@ class ChatController < WebsocketRails::BaseController
     @new_message.user = current_user
 
     if @new_message.save
-      broadcast_message "#{room.id}_message_created", message_attributes.merge(current_user_attributes)
+      broadcast_message "#{room.url_encoded_name}_message_created", message_attributes.merge(current_user_attributes)
     else
       send_message "#{room.id}_message_created", {errors: @new_message.errors}
     end
